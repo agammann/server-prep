@@ -88,8 +88,11 @@ In the panel, add a server (Coolify: Servers → Add).
 - Key: the panel key.
 
 Then click Validate. If it fails:
-- Run `sudo tail /var/log/auth.log` on the server.
-- Check that the key's `from="100.64.0.0/10"` covers the VPS IP.
+- Run `sudo journalctl -u ssh -n 50` on the server to read recent SSH failures.
+- Check that the panel's public key matches `PANEL_PUBKEY` in the saved config.
+- For Tailscale access, check that the panel server is on the tailnet and that the address entered in the panel is this server's Tailscale IP.
+- For public access, check that `PANEL_IP` is the panel server's public IP and that the key's `from="..."` restriction covers it.
+- Check that the port in the panel matches `SSH_PORT` (`822` in this guide).
 
 ## 7. After the run
 1. **CrowdSec:** `sudo cscli console enroll <key>` (if not done earlier), then accept the machine in app.crowdsec.net.
