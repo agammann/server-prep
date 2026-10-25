@@ -5,6 +5,7 @@ Highlights of each release. The full list of merged pull requests is in each
 
 ## [Unreleased]
 
+- The `/new-server` guide checks SSH journal entries and panel connection settings when validation fails.
 - The `update` step also installs `vim`. Fresh Debian servers only ship `vim-tiny` (or `nano`).
 - New guide [docs/cloudflare-tunnel.md](docs/cloudflare-tunnel.md): publish apps through a Cloudflare Tunnel
   run from Coolify's Cloudflared template, close 80/443, and put a Zero Trust login in front of admin tools.
