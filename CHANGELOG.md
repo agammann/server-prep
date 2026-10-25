@@ -5,6 +5,7 @@ Highlights of each release. The full list of merged pull requests is in each
 
 ## [Unreleased]
 
+- The daily Telegram report now shows `rkhunter warnings: 0` for a clean log, without an extra `-` line.
 - New logo: a keyhole standing on a terminal cursor, cut out of one rounded tile, black on light and white in dark mode. In the README
   and the setup console (with an SVG favicon that follows the browser theme). Files in `.github/assets/`.
 - New [setup console](https://exceev-consulting.github.io/server-prep/) (`site/`): pick a VPS or a dedicated
