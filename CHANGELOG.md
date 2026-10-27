@@ -6,6 +6,13 @@ Highlights of each release. The full list of merged pull requests is in each
 ## [Unreleased]
 
 - The daily Telegram report now shows `rkhunter warnings: 0` for a clean log, without an extra `-` line.
+- `server-prep.sh` exits 1 when a step fails or the run stops early, and an unknown `--only` or
+  `--skip` name exits 2 with the valid steps.
+- Avoid an unset-variable error when `server-prep.sh` is passed to bash through standard input or `bash -c`.
+- Do not look for `server-audit.sh` in the current folder when `server-prep.sh` comes from standard input or `bash -c`.
+- [Wiki](https://github.com/exceev-consulting/server-prep/wiki): beginner path, concepts, panels, troubleshooting, FAQ,
+  glossary, architecture and roadmap. Its source lives in `wiki/` and `.github/workflows/wiki.yml` publishes it.
+- Discussions forms for Q&A, Ideas and Show and tell (setups and compatibility reports).
 - New logo: a keyhole standing on a terminal cursor, cut out of one rounded tile, black on light and white in dark mode. In the README
   and the setup console (with an SVG favicon that follows the browser theme). Files in `.github/assets/`.
 - New [setup console](https://exceev-consulting.github.io/server-prep/) (`site/`): pick a VPS or a dedicated
