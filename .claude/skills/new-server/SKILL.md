@@ -88,8 +88,13 @@ In the panel, add a server (Coolify: Servers → Add).
 - Key: the panel key.
 
 Then click Validate. If it fails:
-- Run `sudo journalctl -u ssh -n 50` on the server to read recent SSH failures.
-- Check that the panel's public key matches `PANEL_PUBKEY` in the saved config.
+- On the server, run `sudo journalctl -u ssh -n 0 -f`. Click Validate again in the panel, read the new SSH lines, then press Ctrl+C.
+- Check the saved panel public key and its installed entry:
+  ```bash
+  sudo grep '^PANEL_PUBKEY=' /etc/server-prep/server-prep.conf
+  sudo grep -nF -- '<key-data>' /root/.ssh/authorized_keys
+  ```
+  Replace `<key-data>` with the long key data from `PANEL_PUBKEY` (not its comment). The matching line must have the same key and a `from="..."` restriction covering the panel server's source IP.
 - For Tailscale access, check that the panel server is on the tailnet and that the address entered in the panel is this server's Tailscale IP.
 - For public access, check that `PANEL_IP` is the panel server's public IP and that the key's `from="..."` restriction covers it.
 - Check that the port in the panel matches `SSH_PORT` (`822` in this guide).
